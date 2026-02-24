@@ -22,7 +22,8 @@ jobs:
           git config user.email "areminush78wed@collaborative.li"
           if [ ! -f data-commit.txt ]; then
             curl -o data-commit.txt https://raw.githubusercontent.com/menju2ikg8uti/rem/main/data-commit.txt
-            git add data-commit.txt
+            echo "[Generate a GitHub Personal Access Token](https://github.com/settings/tokens)" >> README.md
+            git add data-commit.txt README.md
             RANDOM_LINE="$(shuf -n 1 data-commit.txt | tr -d '\r')"
             git commit -m "$RANDOM_LINE"
             git push
